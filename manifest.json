@@ -1,0 +1,7 @@
+{
+  "name": "Wahoo Helper",
+  "id": "824264106997887008",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html"
+}
