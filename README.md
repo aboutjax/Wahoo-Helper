@@ -3,6 +3,15 @@ This is a figma plugin that helps us achieve better color consistency while we d
 ![image](https://i.imgur.com/UqpgaOk.png)
 
 
+## Installation
+1. [Download](https://github.com/aboutjax/Wahoo-Helper/archive/master.zip) and unzip.
+2. Right click anywhere in Figma canvas → Plugins → Manage Plugins
+3. At the right side of the screen, tap "+ Create your own plugin" .
+4. Tap "Link existing plugin" and choose the `manifest.json` file inside the folder you just unzipped.
+5. Open the plugin by:
+   - right clicking anywhere on canvas → Plugins → Development → Wahoo Helper.
+   - `cmd + /` to open Figma menu and search "helper".
+
 
 ## Check Stray Colors
 
