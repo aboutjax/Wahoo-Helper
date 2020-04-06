@@ -39,103 +39,94 @@ figma.showUI(__html__);
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
 figma.ui.resize(400, 500);
+
+const themesStyleId = {
+  darkUI: {
+    body: figma.importStyleByKeyAsync(
+      "2f060e7422a8ad17a037a250d368cf671adc0468"
+    ),
+    surface: figma.importStyleByKeyAsync(
+      "15f5ffac3ec91b24089813439ffadd1f9994b29c"
+    ),
+    keyline: figma.importStyleByKeyAsync(
+      "84ab0f298ea8fcd0b82ac89298ad51140ca7b75a"
+    ),
+    keylineAlternative: figma.importStyleByKeyAsync(
+      "bffe20f9729acb525d8861288f0d844137698c55"
+    ),
+    accent: figma.importStyleByKeyAsync(
+      "1b038ec600d2a14b6cce35f7b4090c6ad2dd2c7d"
+    ),
+    error: figma.importStyleByKeyAsync(
+      "00e4381cfb851f7f7c87084c5cfad11efb80cc23"
+    ),
+    onAccent: figma.importStyleByKeyAsync(
+      "3fdbd43dd2463c64b94e0b81a916a606c08b0f1c"
+    ),
+    onSurfaceHigh: figma.importStyleByKeyAsync(
+      "5e8e492598c4f6e18d86d87b3ad10e8567fa7fd1"
+    ),
+    onSurfaceMedium: figma.importStyleByKeyAsync(
+      "9d2e511d9a31ebd76e302ab25d1e995e6a83ac1c"
+    ),
+    onSurfaceDisabled: figma.importStyleByKeyAsync(
+      "c98883e07be80be6bcd18814eb29a87797a99c6a"
+    )
+  },
+  lightUI: {
+    body: figma.importStyleByKeyAsync(
+      "fb8c4bd281795afa9dc89334a4e51d8074377875"
+    ),
+    surface: figma.importStyleByKeyAsync(
+      "a92dc99c84ddd59822f873e0a69539a4a3ff1387"
+    ),
+    keyline: figma.importStyleByKeyAsync(
+      "035e2f818df36b0e4f75ff6c529d54b3ca7082cc"
+    ),
+    keylineAlternative: figma.importStyleByKeyAsync(
+      "139c3c1e0c69fc9583292b787af895d0148a9939"
+    ),
+    accent: figma.importStyleByKeyAsync(
+      "38935c8773bab5e7b2c9db832b2bcc84b075b24c"
+    ),
+    error: figma.importStyleByKeyAsync(
+      "4096eb67f6718f300119597d8fd6c82d47936ea0"
+    ),
+    onAccent: figma.importStyleByKeyAsync(
+      "a4ced9ccbdeb78146fa1b7d24fff6b7384c84784"
+    ),
+    onSurfaceHigh: figma.importStyleByKeyAsync(
+      "346e73b97981c4166f24c3c3b0008fc2a18ad662"
+    ),
+    onSurfaceMedium: figma.importStyleByKeyAsync(
+      "3774208f54aa6405db7c1b7d936a17525f5b1a77"
+    ),
+    onSurfaceDisabled: figma.importStyleByKeyAsync(
+      "bc1e389de2ce73a54f8a692f489650ef52667f30"
+    )
+  }
+};
+
 figma.ui.onmessage = msg => {
   // One way of distinguishing between different types of messages sent from
   // your HTML page is to use an object with a "type" property like this.
   if (msg.type === "dark-theme") {
     // Dark theme
 
-    let themesStyleId = {
-      darkUI: {
-        body: figma.importStyleByKeyAsync(
-          "2f060e7422a8ad17a037a250d368cf671adc0468"
-        ),
-        surface: figma.importStyleByKeyAsync(
-          "15f5ffac3ec91b24089813439ffadd1f9994b29c"
-        ),
-        keyline: figma.importStyleByKeyAsync(
-          "84ab0f298ea8fcd0b82ac89298ad51140ca7b75a"
-        ),
-        accent: figma.importStyleByKeyAsync(
-          "1b038ec600d2a14b6cce35f7b4090c6ad2dd2c7d"
-        ),
-        error: figma.importStyleByKeyAsync(
-          "00e4381cfb851f7f7c87084c5cfad11efb80cc23"
-        ),
-        onAccent: figma.importStyleByKeyAsync(
-          "3fdbd43dd2463c64b94e0b81a916a606c08b0f1c"
-        ),
-        onSurfaceHigh: figma.importStyleByKeyAsync(
-          "5e8e492598c4f6e18d86d87b3ad10e8567fa7fd1"
-        ),
-        onSurfaceMedium: figma.importStyleByKeyAsync(
-          "9d2e511d9a31ebd76e302ab25d1e995e6a83ac1c"
-        ),
-        onSurfaceDisabled: figma.importStyleByKeyAsync(
-          "c98883e07be80be6bcd18814eb29a87797a99c6a"
-        )
-      },
-      lightUI: {
-        body: figma.importStyleByKeyAsync(
-          "fb8c4bd281795afa9dc89334a4e51d8074377875"
-        ),
-        surface: figma.importStyleByKeyAsync(
-          "a92dc99c84ddd59822f873e0a69539a4a3ff1387"
-        ),
-        keyline: figma.importStyleByKeyAsync(
-          "035e2f818df36b0e4f75ff6c529d54b3ca7082cc"
-        ),
-        accent: figma.importStyleByKeyAsync(
-          "38935c8773bab5e7b2c9db832b2bcc84b075b24c"
-        ),
-        error: figma.importStyleByKeyAsync(
-          "4096eb67f6718f300119597d8fd6c82d47936ea0"
-        ),
-        onAccent: figma.importStyleByKeyAsync(
-          "a4ced9ccbdeb78146fa1b7d24fff6b7384c84784"
-        ),
-        onSurfaceHigh: figma.importStyleByKeyAsync(
-          "346e73b97981c4166f24c3c3b0008fc2a18ad662"
-        ),
-        onSurfaceMedium: figma.importStyleByKeyAsync(
-          "3774208f54aa6405db7c1b7d936a17525f5b1a77"
-        ),
-        onSurfaceDisabled: figma.importStyleByKeyAsync(
-          "bc1e389de2ce73a54f8a692f489650ef52667f30"
-        )
-      }
-    };
-
     async function DarkThemeTraverse(node) {
-      let lightUIBody = await figma.importStyleByKeyAsync(
-        "fb8c4bd281795afa9dc89334a4e51d8074377875"
-      );
-      let lightUISurface = await figma.importStyleByKeyAsync(
-        "a92dc99c84ddd59822f873e0a69539a4a3ff1387"
-      );
-      let lightUIKeyline = await figma.importStyleByKeyAsync(
-        "035e2f818df36b0e4f75ff6c529d54b3ca7082cc"
-      );
-      let lightUIAccent = await figma.importStyleByKeyAsync(
-        "38935c8773bab5e7b2c9db832b2bcc84b075b24c"
-      );
-      let lightUIError = await figma.importStyleByKeyAsync(
-        "4096eb67f6718f300119597d8fd6c82d47936ea0"
-      );
-      let lightUIOnAccent = await figma.importStyleByKeyAsync(
-        "a4ced9ccbdeb78146fa1b7d24fff6b7384c84784"
-      );
-      let lightUIOnSurfaceHigh = await figma.importStyleByKeyAsync(
-        "346e73b97981c4166f24c3c3b0008fc2a18ad662"
-      );
-      let lightUIOnSurfaceMedium = await figma.importStyleByKeyAsync(
-        "3774208f54aa6405db7c1b7d936a17525f5b1a77"
-      );
-      let lightUIOnSurfaceDisabled = await figma.importStyleByKeyAsync(
-        "bc1e389de2ce73a54f8a692f489650ef52667f30"
-      );
+      let lightUIBody = await themesStyleId.lightUI.body;
+      let lightUISurface = await themesStyleId.lightUI.surface;
+      let lightUIKeyline = await themesStyleId.lightUI.keyline;
+      let lightUIKeylineAlternative = await themesStyleId.lightUI
+        .keylineAlternative;
+      let lightUIAccent = await themesStyleId.lightUI.accent;
+      let lightUIError = await themesStyleId.lightUI.error;
+      let lightUIOnAccent = await themesStyleId.lightUI.onAccent;
+      let lightUIOnSurfaceHigh = await themesStyleId.lightUI.onSurfaceHigh;
+      let lightUIOnSurfaceMedium = await themesStyleId.lightUI.onSurfaceMedium;
+      let lightUIOnSurfaceDisabled = await themesStyleId.lightUI
+        .onSurfaceDisabled;
 
-      console.log(node.strokeStyleId);
       switch (node.strokeStyleId) {
         case lightUIAccent.id:
           themesStyleId.darkUI.accent.then(resp => {
@@ -149,6 +140,11 @@ figma.ui.onmessage = msg => {
           break;
         case lightUIKeyline.id:
           themesStyleId.darkUI.keyline.then(resp => {
+            node.strokeStyleId = resp.id;
+          });
+          break;
+        case lightUIKeylineAlternative.id:
+          themesStyleId.darkUI.keylineAlternative.then(resp => {
             node.strokeStyleId = resp.id;
           });
           break;
@@ -172,6 +168,12 @@ figma.ui.onmessage = msg => {
           break;
         case lightUIKeyline.id:
           themesStyleId.darkUI.keyline.then(resp => {
+            node.fillStyleId = resp.id;
+          });
+          break;
+
+        case lightUIKeylineAlternative.id:
+          themesStyleId.darkUI.keylineAlternative.then(resp => {
             node.fillStyleId = resp.id;
           });
           break;
@@ -219,100 +221,20 @@ figma.ui.onmessage = msg => {
 
     DarkThemeTraverse(figma.currentPage.selection[0]);
   } else if (msg.type === "light-theme") {
-    // Light Theme
-    // This plugin creates 5 rectangles on the screen.
-
-    let themesStyleId = {
-      darkUI: {
-        body: figma.importStyleByKeyAsync(
-          "2f060e7422a8ad17a037a250d368cf671adc0468"
-        ),
-        surface: figma.importStyleByKeyAsync(
-          "15f5ffac3ec91b24089813439ffadd1f9994b29c"
-        ),
-        keyline: figma.importStyleByKeyAsync(
-          "84ab0f298ea8fcd0b82ac89298ad51140ca7b75a"
-        ),
-        accent: figma.importStyleByKeyAsync(
-          "1b038ec600d2a14b6cce35f7b4090c6ad2dd2c7d"
-        ),
-        error: figma.importStyleByKeyAsync(
-          "00e4381cfb851f7f7c87084c5cfad11efb80cc23"
-        ),
-        onAccent: figma.importStyleByKeyAsync(
-          "3fdbd43dd2463c64b94e0b81a916a606c08b0f1c"
-        ),
-        onSurfaceHigh: figma.importStyleByKeyAsync(
-          "5e8e492598c4f6e18d86d87b3ad10e8567fa7fd1"
-        ),
-        onSurfaceMedium: figma.importStyleByKeyAsync(
-          "9d2e511d9a31ebd76e302ab25d1e995e6a83ac1c"
-        ),
-        onSurfaceDisabled: figma.importStyleByKeyAsync(
-          "c98883e07be80be6bcd18814eb29a87797a99c6a"
-        )
-      },
-      lightUI: {
-        body: figma.importStyleByKeyAsync(
-          "fb8c4bd281795afa9dc89334a4e51d8074377875"
-        ),
-        surface: figma.importStyleByKeyAsync(
-          "a92dc99c84ddd59822f873e0a69539a4a3ff1387"
-        ),
-        keyline: figma.importStyleByKeyAsync(
-          "035e2f818df36b0e4f75ff6c529d54b3ca7082cc"
-        ),
-        accent: figma.importStyleByKeyAsync(
-          "38935c8773bab5e7b2c9db832b2bcc84b075b24c"
-        ),
-        error: figma.importStyleByKeyAsync(
-          "4096eb67f6718f300119597d8fd6c82d47936ea0"
-        ),
-        onAccent: figma.importStyleByKeyAsync(
-          "a4ced9ccbdeb78146fa1b7d24fff6b7384c84784"
-        ),
-        onSurfaceHigh: figma.importStyleByKeyAsync(
-          "346e73b97981c4166f24c3c3b0008fc2a18ad662"
-        ),
-        onSurfaceMedium: figma.importStyleByKeyAsync(
-          "3774208f54aa6405db7c1b7d936a17525f5b1a77"
-        ),
-        onSurfaceDisabled: figma.importStyleByKeyAsync(
-          "bc1e389de2ce73a54f8a692f489650ef52667f30"
-        )
-      }
-    };
-
     async function LightThemeTraverse(node) {
-      let darkUIBody = await figma.importStyleByKeyAsync(
-        "2f060e7422a8ad17a037a250d368cf671adc0468"
-      );
-      let darkUISurface = await figma.importStyleByKeyAsync(
-        "15f5ffac3ec91b24089813439ffadd1f9994b29c"
-      );
-      let darkUIKeyline = await figma.importStyleByKeyAsync(
-        "84ab0f298ea8fcd0b82ac89298ad51140ca7b75a"
-      );
-      let darkUIAccent = await figma.importStyleByKeyAsync(
-        "1b038ec600d2a14b6cce35f7b4090c6ad2dd2c7d"
-      );
-      let darkUIError = await figma.importStyleByKeyAsync(
-        "00e4381cfb851f7f7c87084c5cfad11efb80cc23"
-      );
-      let darkUIOnAccent = await figma.importStyleByKeyAsync(
-        "3fdbd43dd2463c64b94e0b81a916a606c08b0f1c"
-      );
-      let darkUIOnSurfaceHigh = await figma.importStyleByKeyAsync(
-        "5e8e492598c4f6e18d86d87b3ad10e8567fa7fd1"
-      );
-      let darkUIOnSurfaceMedium = await figma.importStyleByKeyAsync(
-        "9d2e511d9a31ebd76e302ab25d1e995e6a83ac1c"
-      );
-      let darkUIOnSurfaceDisabled = await figma.importStyleByKeyAsync(
-        "c98883e07be80be6bcd18814eb29a87797a99c6a"
-      );
+      let darkUIBody = await themesStyleId.darkUI.body;
+      let darkUISurface = await themesStyleId.darkUI.surface;
+      let darkUIKeyline = await themesStyleId.darkUI.keyline;
+      let darkUIKeylineAlternative = await themesStyleId.darkUI
+        .keylineAlternative;
+      let darkUIAccent = await themesStyleId.darkUI.accent;
+      let darkUIError = await themesStyleId.darkUI.error;
+      let darkUIOnAccent = await themesStyleId.darkUI.onAccent;
+      let darkUIOnSurfaceHigh = await themesStyleId.darkUI.onSurfaceHigh;
+      let darkUIOnSurfaceMedium = await themesStyleId.darkUI.onSurfaceMedium;
+      let darkUIOnSurfaceDisabled = await themesStyleId.darkUI
+        .onSurfaceDisabled;
 
-      console.log(node.strokeStyleId);
       switch (node.strokeStyleId) {
         case darkUIAccent.id:
           themesStyleId.lightUI.accent.then(resp => {
@@ -326,6 +248,11 @@ figma.ui.onmessage = msg => {
           break;
         case darkUIKeyline.id:
           themesStyleId.lightUI.keyline.then(resp => {
+            node.strokeStyleId = resp.id;
+          });
+          break;
+        case darkUIKeylineAlternative.id:
+          themesStyleId.lightUI.keylineAlternative.then(resp => {
             node.strokeStyleId = resp.id;
           });
           break;
@@ -349,6 +276,11 @@ figma.ui.onmessage = msg => {
           break;
         case darkUIKeyline.id:
           themesStyleId.lightUI.keyline.then(resp => {
+            node.fillStyleId = resp.id;
+          });
+          break;
+        case darkUIKeylineAlternative.id:
+          themesStyleId.lightUI.keylineAlternative.then(resp => {
             node.fillStyleId = resp.id;
           });
           break;
@@ -421,8 +353,9 @@ figma.ui.onmessage = msg => {
           }
         };
 
-        let newStrokes = node.strokes.filter(filterWarningStroke);
-        // console.log(node.strokes, newStrokes);
+        let oldStrokes = clone(node.strokes);
+
+        let newStrokes = oldStrokes.filter(filterWarningStroke);
 
         if (node.strokeStyleId.length > 0) {
           // do nothing
@@ -442,7 +375,7 @@ figma.ui.onmessage = msg => {
           };
           strokes.push(warningStrokeProperty);
           node.strokes = strokes;
-          node.strokeAlign = "OUTSIDE";
+          // node.strokeAlign = "OUTSIDE";
         };
 
         // Check Fill
@@ -492,7 +425,7 @@ figma.ui.onmessage = msg => {
     ColorCheckTraverse(figma.currentPage.selection[0]);
 
     if (strayFill > 0 || strayStroke > 0) {
-      alert(
+      figma.notify(
         "You have " +
           strayFill +
           " fills and " +
@@ -500,7 +433,7 @@ figma.ui.onmessage = msg => {
           " strokes not using colours from our library!"
       );
     } else {
-      alert("👏 All is good in the hood!");
+      figma.notify("👏 All is good in the hood!");
     }
   }
 
